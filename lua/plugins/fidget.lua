@@ -1,3 +1,6 @@
+-- NOTE: Disabling this plugin
+if true then return {} end
+
 return {
   -- Replace nvim-notify with fidget.nvim
   { "rcarriga/nvim-notify", enabled = false },
