@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  "AstroNvim/astrocore",
+  "ButterSus/astrocore",
   ---@type AstroCoreOpts
   opts = {
     -- Automatically Restore Previous Session
