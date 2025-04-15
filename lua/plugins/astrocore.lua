@@ -13,11 +13,26 @@ return {
           desc = "Restore previous directory session if neovim opened with no arguments",
           nested = true, -- trigger other autocommands as buffers open
           callback = function()
+            local cwd = vim.fn.getcwd()
+
+            local plugin = require("lazy.core.config").spec.plugins["astrocore"]
+            local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+            local dirs = opts.sessions.ignore.dirs
+
+            local ignored = false
+            for _, dir in ipairs(dirs) do
+              if cwd == dir then
+                ignored = true
+                break
+              end
+            end
+
             -- Only load the session if nvim was started with no args
             -- and we are not running inside the VSCode extension
-            if vim.fn.argc(-1) == 0 and not vim.g.vscode then
+            -- Also don't load ignored directories
+            if vim.fn.argc(-1) == 0 and not vim.g.vscode and not ignored then
               -- try to load a directory session using the current working directory
-              require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+              require("resession").load(cwd, { dir = "dirsession", silence_errors = true })
             end
           end,
         },
