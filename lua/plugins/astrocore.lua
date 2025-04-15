@@ -94,9 +94,9 @@ return {
     -- passed to `vim.filetype.add`
     filetypes = {
       -- see `:h vim.filetype.add` for usage
-      -- extension = {
-      --   foo = "fooscript",
-      -- },
+      extension = {
+        mdx = "markdown",
+      },
       -- filename = {
       --   [".foorc"] = "fooscript",
       -- },
