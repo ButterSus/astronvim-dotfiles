@@ -1,8 +1,6 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
-  dir = "~/.config/nvim/astrocore",
-  dev = true,
   ---@type AstroCoreOpts
   opts = {
     -- Automatically Restore Previous Session
