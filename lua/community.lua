@@ -4,11 +4,7 @@
 
 ---@type LazySpec
 return {
-  {
-    "ButterSus/astrocommunity",
-    branch = "personal",
-    dir = "~/.config/nvim/astrocommunity/",
-  },
+  "ButterSus/astrocommunity",
 
   -- Languages
   { import = "astrocommunity.pack.python" },
