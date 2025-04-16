@@ -16,3 +16,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- Reset highlight
 vim.keymap.set({ "n" }, "<Esc>", ":noh<CR>", { silent = true })
+
+-- Close buffer
+vim.keymap.set("n", "<Leader>X", "<cmd>tabclose<CR>", { desc = "Close tab" })
