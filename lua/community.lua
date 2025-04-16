@@ -70,6 +70,7 @@ return {
   { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.vim-move" },
+  { import = "astrocommunity.editing-support.vim-exchange" },
 
   -- Recipes
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
