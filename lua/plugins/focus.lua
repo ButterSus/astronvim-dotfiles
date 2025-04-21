@@ -33,7 +33,8 @@ return {
       },
     }
 
-    local ignore_filetypes = {}
+    local ignore_filetypes = { "help", "toggleterm", "qf" }
+    -- FIXME: Doesn't work properly for terminal
     local ignore_buftypes = { "nofile", "prompt", "popup", "nowrite", "terminal" }
     local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
 
