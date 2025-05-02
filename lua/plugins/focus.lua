@@ -34,18 +34,32 @@ return {
     }
 
     local ignore_filetypes = { "help", "toggleterm", "qf" }
-    -- FIXME: Doesn't work properly for terminal
     local ignore_buftypes = { "nofile", "prompt", "popup", "nowrite", "terminal" }
     local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
+
+    -- More robust way to disable focus for specific buffers, including terminals
+    vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "TermOpen" }, {
+      group = augroup,
+      callback = function(args)
+        local buf = args.buf
+        if
+          vim.tbl_contains(ignore_buftypes, vim.bo[buf].buftype)
+          or vim.tbl_contains(ignore_filetypes, vim.bo[buf].filetype)
+        then
+          -- Disable focus for the window containing this buffer
+          local wins = vim.fn.win_findbuf(buf)
+          for _, win in ipairs(wins) do
+            vim.w[win].focus_disable = true
+          end
+        end
+      end,
+      desc = "Disable focus for specific buffer types",
+    })
 
     vim.api.nvim_create_autocmd("WinEnter", {
       group = augroup,
       callback = function(_)
-        if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
-          vim.w.focus_disable = true
-        else
-          vim.w.focus_disable = false
-        end
+        if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then vim.b.focus_disable = true end
       end,
       desc = "Disable focus autoresize for BufType",
     })
@@ -53,11 +67,7 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       group = augroup,
       callback = function(_)
-        if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
-          vim.b.focus_disable = true
-        else
-          vim.b.focus_disable = false
-        end
+        if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then vim.b.focus_disable = true end
       end,
       desc = "Disable focus autoresize for FileType",
     })
