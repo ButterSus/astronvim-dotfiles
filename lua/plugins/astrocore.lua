@@ -113,7 +113,7 @@ return {
         relativenumber = true,
         number = true,
         spell = false,
-        wrap = false,
+        wrap = true,
       },
       g = {},
     },
