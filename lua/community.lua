@@ -4,7 +4,7 @@
 
 ---@type LazySpec
 return {
-  "ButterSus/astrocommunity",
+  "AstroNvim/astrocommunity",
 
   -- Languages
   { import = "astrocommunity.pack.python" },
