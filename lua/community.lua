@@ -27,6 +27,7 @@ return {
   { import = "astrocommunity.colorscheme.monokai-pro-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- File explorer
   { import = "astrocommunity.file-explorer.mini-files" },
