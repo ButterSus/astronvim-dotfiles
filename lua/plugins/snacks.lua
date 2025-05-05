@@ -1,4 +1,7 @@
-local headers = {
+-- Disable snacks in vscode
+if vim.g.vscode then return {} end
+
+local header = table.concat({
   "____________ _____   ___        ______ _____ _     ",
   "|  ___| ___ \\  __ \\ / _ \\       | ___ \\_   _| |    ",
   "| |_  | |_/ / |  \\// /_\\ \\______| |_/ / | | | |    ",
@@ -18,17 +21,16 @@ local headers = {
   "|  __| '_ ` _ \\| '_ \\ / _ \\/ _` |/ _` |/ _ \\/ _` | ",
   "| |__| | | | | | |_) |  __/ (_| | (_| |  __/ (_| | ",
   "\\____/_| |_| |_|_.__/ \\___|\\__,_|\\__,_|\\___|\\__,_| ",
-}
+}, "\n")
 
 ---@type LazySpec
 return {
-  -- Customize alpha options
   {
     "folke/snacks.nvim",
     opts = {
       dashboard = {
         preset = {
-          header = table.concat(headers, "\n"),
+          header = header,
         },
         sections = {
           { section = "header" },
@@ -38,9 +40,12 @@ return {
           { section = "startup" },
         },
       },
+      notifier = {
+        style = "minimal",
+      },
+    },
+    keys = {
+      { "<Leader><Leader>", function() require("snacks.picker").buffers() end, { desc = "Buffers" } },
     },
   },
-
-  -- Disable JK mapping
-  { "max397574/better-escape.nvim", enabled = false },
 }
