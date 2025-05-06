@@ -28,8 +28,11 @@ return {
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
 
+  -- Icons
+  { import = "astrocommunity.icon.mini-icons" },
+
   -- File explorer
-  { import = "astrocommunity.file-explorer.oil-nvim" },
+  { import = "astrocommunity.file-explorer.mini-files" },
 
   -- Git
   { import = "astrocommunity.git.diffview-nvim" },
