@@ -86,4 +86,9 @@ return {
 
   -- Code Runner
   { import = "astrocommunity.code-runner.overseer-nvim" },
+
+  -- Media
+  { import = "astrocommunity.media.img-clip-nvim" },
+  { import = "astrocommunity.media.neocord-nvim" },
+  { import = "astrocommunity.media.image-nvim" },
 }
