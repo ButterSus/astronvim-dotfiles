@@ -3,6 +3,7 @@ return {
   -- use mason-lspconfig to configure LSP installations
   {
     "williamboman/mason-lspconfig.nvim",
+    opts_extend = { "ensure_installed" },
     opts = {
       ensure_installed = {
         "lua_ls",
@@ -12,6 +13,7 @@ return {
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
+    opts_extend = { "ensure_installed" },
     opts = {
       ensure_installed = {
         "stylua",
@@ -20,6 +22,7 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    opts_extend = { "ensure_installed" },
     opts = {
       ensure_installed = {
         "python",
