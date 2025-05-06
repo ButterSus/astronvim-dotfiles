@@ -5,4 +5,15 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+
+  -- Languages
+  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.typst" },
+  { import = "astrocommunity.pack.verilog" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.fish" },
+  { import = "astrocommunity.pack.hyprlang" },
+  { import = "astrocommunity.pack.markdown" },
 }
