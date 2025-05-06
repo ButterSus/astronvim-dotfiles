@@ -3,6 +3,20 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+local verible_rules = {
+  "parameter-name-style=parameter_style_regex:[a-z_][a-z0-9_]*",
+  "parameter_style:ALL_CAPS",
+  "localparam_style_regex:[a-z_][a-z0-9_]*",
+  "localparam_style:",
+  "+module-port",
+  "-always-comb",
+  "-explicit-parameter",
+  "-storage-type",
+  "-unpacked-dimensions-range-ordering",
+  "-explicit-task-lifetime",
+  "-module-filename",
+}
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -23,7 +37,8 @@ return {
           -- "go",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
+          "systemverilog",
+          "verilog",
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -42,7 +57,10 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      verible = {
+        cmd = { "verible-verilog-ls", "--rules", table.concat(verible_rules, ";") },
+        capabilities = { offsetEncoding = "utf-8" },
+      },
     },
     -- customize how language servers are attached
     handlers = {
