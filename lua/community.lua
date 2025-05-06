@@ -49,6 +49,7 @@ return {
   -- LSP
   { import = "astrocommunity.lsp.lsp-lens-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  { import = "astrocommunity.lsp.inc-rename-nvim" },
 
   -- Motion
   { import = "astrocommunity.motion.flash-nvim" },
@@ -61,6 +62,7 @@ return {
 
   -- Completion
   { import = "astrocommunity.completion.codeium-nvim" },
+  { import = "astrocommunity.completion.cmp-cmdline" },
 
   -- Editing support
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
@@ -70,6 +72,8 @@ return {
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
   { import = "astrocommunity.editing-support.bigfile-nvim" },
   { import = "astrocommunity.editing-support.multiple-cursors-nvim" },
+  { import = "astrocommunity.editing-support.undotree" },
+  { import = "astrocommunity.editing-support.neogen" },
 
   -- Recipes
   { import = "astrocommunity.recipes.telescope-nvchad-theme" },
