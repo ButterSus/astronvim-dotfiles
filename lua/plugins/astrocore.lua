@@ -105,10 +105,11 @@ return {
     -- vim options can be configured here
     options = {
       opt = {
+        winborder = "solid",
+        signcolumn = "number",
         relativenumber = true,
         number = true,
         spell = false,
-        signcolumn = "yes",
         wrap = false,
       },
       g = {},
