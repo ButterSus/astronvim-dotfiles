@@ -65,7 +65,7 @@ return {
   { import = "astrocommunity.completion.cmp-cmdline" },
 
   -- Editing support
-  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
+  { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
