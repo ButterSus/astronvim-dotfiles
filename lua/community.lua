@@ -80,6 +80,7 @@ return {
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
   { import = "astrocommunity.recipes.vscode" },
+  { import = "astrocommunity.recipes.neovide" },
 
   -- Diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
