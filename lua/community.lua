@@ -76,9 +76,9 @@ return {
   { import = "astrocommunity.editing-support.neogen" },
 
   -- Recipes
-  { import = "astrocommunity.recipes.telescope-nvchad-theme" },
+  { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
-  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  { import = "astrocommunity.recipes.picker-lsp-mappings" },
   { import = "astrocommunity.recipes.vscode" },
 
   -- Diagnostics
@@ -91,4 +91,7 @@ return {
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.media.neocord-nvim" },
   { import = "astrocommunity.media.image-nvim" },
+
+  -- Fuzzy Finder
+  { import = "astrocommunity.fuzzy-finder.snacks-picker" },
 }
