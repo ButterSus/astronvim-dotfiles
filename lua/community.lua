@@ -79,6 +79,8 @@ return {
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
+  { import = "astrocommunity.recipes.heirline-clock-statusline" },
+  { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.recipes.neovide" },
 
