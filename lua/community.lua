@@ -59,6 +59,7 @@ return {
 
   -- Completion
   { import = "astrocommunity.completion.cmp-cmdline" },
+  { import = "astrocommunity.completion.codeium-nvim" },
 
   -- Editing support
   { import = "astrocommunity.editing-support.undotree" },
