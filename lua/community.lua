@@ -58,7 +58,6 @@ return {
   { import = "astrocommunity.terminal-integration.vim-tmux-navigator" },
 
   -- Completion
-  { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.codeium-nvim" },
 
   -- Editing support
