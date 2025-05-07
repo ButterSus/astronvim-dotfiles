@@ -1,31 +1,16 @@
 ---@type LazySpec
 return {
-  -- use mason-lspconfig to configure LSP installations
+  -- use mason-tool-installer for automatically installing Mason packages
   {
-    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- overrides `require("mason-tool-installer").setup(...)`
     opts_extend = { "ensure_installed" },
     opts = {
+      -- Make sure to use the names found in `:Mason`
       ensure_installed = {
-        "lua_ls",
-      },
-    },
-  },
-  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jay-babu/mason-null-ls.nvim",
-    opts_extend = { "ensure_installed" },
-    opts = {
-      ensure_installed = {
+        "lua-language-server",
         "stylua",
-      },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    opts_extend = { "ensure_installed" },
-    opts = {
-      ensure_installed = {
-        "python",
+        "tree-sitter-cli",
       },
     },
   },

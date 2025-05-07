@@ -3,9 +3,7 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    icons = {
-      Codeium = "󱙺", -- Add Codeium icon
-    },
+    icons = {},
     highlights = {
       -- set highlights for all themes
       -- use a function override to let us use lua to retrieve
