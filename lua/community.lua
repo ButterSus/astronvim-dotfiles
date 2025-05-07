@@ -76,6 +76,7 @@ return {
   { import = "astrocommunity.editing-support.neogen" },
 
   -- Recipes
+  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
