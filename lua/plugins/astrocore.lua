@@ -114,6 +114,7 @@ return {
         number = true,
         spell = false,
         wrap = true,
+        conceallevel = 2,
       },
       g = {},
     },
