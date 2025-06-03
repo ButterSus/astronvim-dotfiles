@@ -51,6 +51,7 @@ return {
 
   -- Motion
   { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.motion.harpoon" },
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.motion.nvim-spider" },
@@ -69,7 +70,6 @@ return {
   { import = "astrocommunity.editing-support.bigfile-nvim" },
   { import = "astrocommunity.editing-support.multiple-cursors-nvim" },
   { import = "astrocommunity.editing-support.undotree" },
-  { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.vim-move" },
   { import = "astrocommunity.editing-support.vim-exchange" },
 

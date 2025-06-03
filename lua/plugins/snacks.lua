@@ -44,8 +44,5 @@ return {
         style = "minimal",
       },
     },
-    keys = {
-      { "<Leader><Leader>", function() require("snacks.picker").buffers() end, { desc = "Buffers" } },
-    },
   },
 }
