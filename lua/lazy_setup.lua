@@ -1,5 +1,15 @@
+local gitUrlFormatter = {}
+
+function gitUrlFormatter:format(plugin_name)
+  -- My custom forks
+  if plugin_name == "AstroNvim/astrocommunity" then return "https://github.com/ButterSus/astrocommunity.git" end
+  if plugin_name == "AstroNvim/astrocore" then return "https://github.com/ButterSus/astrocore.git" end
+
+  -- Default behavior
+  return ("https://github.com/%s.git"):format(plugin_name)
+end
+
 require("lazy").setup({
-  { import = "overrides" },
   {
     "AstroNvim/AstroNvim",
     version = "^5", -- Remove version tracking to elect for nightly AstroNvim
@@ -15,6 +25,12 @@ require("lazy").setup({
   { import = "community" },
   { import = "plugins" },
 } --[[@as LazySpec]], {
+
+  -- Override urls to custom ones
+  git = {
+    url_format = gitUrlFormatter,
+  },
+
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrotheme", "habamax", "gruvbox" } },
   ui = { backdrop = 100 },
