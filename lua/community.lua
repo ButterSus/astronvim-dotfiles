@@ -42,7 +42,6 @@ return {
   { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
 
   -- LSP
-  { import = "astrocommunity.lsp.lsp-lens-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.lsp.inc-rename-nvim" },
 
