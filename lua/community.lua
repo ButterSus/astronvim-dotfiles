@@ -17,6 +17,7 @@ return {
   { import = "astrocommunity.pack.fish" },
   { import = "astrocommunity.pack.hyprlang" },
   { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.nix" },
 
   -- Markdown & Latex
   { import = "astrocommunity.markdown-and-latex.markview-nvim" },
