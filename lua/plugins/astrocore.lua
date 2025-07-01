@@ -35,31 +35,6 @@ return {
           end,
         },
       },
-      -- Add new group for placeholder handling
-      placeholder_handling = {
-        {
-          event = { "BufAdd", "BufEnter" },
-          desc = "Close placeholder buffer when a new buffer is opened",
-          callback = function()
-            local bufs = vim.fn.getbufinfo()
-            local listed_bufs = 0
-            local placeholder_buf = nil
-
-            -- Count listed buffers and find placeholder buffer
-            for _, buf in ipairs(bufs) do
-              if buf.listed == 1 and buf.name:match ".*neo%-tree.*" == nil then listed_bufs = listed_bufs + 1 end
-              -- Match any buffer named [Placeholder] or [Placeholder] (X)
-              if buf.name:match ".*%[Placeholder%].*" then placeholder_buf = buf.bufnr end
-            end
-
-            -- If we have other buffers and placeholder buffer exists, close placeholder
-            if listed_bufs > 1 and placeholder_buf then
-              local current_buf = vim.api.nvim_get_current_buf()
-              if current_buf ~= placeholder_buf then vim.api.nvim_buf_delete(placeholder_buf, { force = true }) end
-            end
-          end,
-        },
-      },
     },
     -- Configuration table of session options for AstroNvim's session management powered by Resession
     sessions = {
@@ -138,38 +113,13 @@ return {
           desc = "Close buffer from tabline",
         },
 
-        -- Open placeholder buffer when no more buffers
-        ["<Leader>c"] = {
-          function()
-            local bufs = vim.fn.getbufinfo { buflisted = 1 }
-            local current_buf = vim.api.nvim_get_current_buf()
-
-            -- Load the placeholder utility
-            local placeholder = require "utils.placeholder"
-
-            -- Check if the current buffer is a placeholder
-            if placeholder.is_placeholder_buffer(current_buf) then return end
-
-            -- If this is the last buffer, show placeholder buffer after closing
-            if #bufs <= 1 then
-              -- Get current buffer to close later
-              local bufnr = vim.api.nvim_get_current_buf()
-
-              -- Create a placeholder buffer and switch to it
-              local placeholder_buf = placeholder.create_placeholder_buffer()
-
-              -- Switch to placeholder buffer first
-              vim.api.nvim_set_current_buf(placeholder_buf)
-
-              -- Close the old buffer after switching
-              require("astrocore.buffer").close(bufnr)
-            else
-              -- Standard buffer close for non-last buffer
-              require("astrocore.buffer").close(0)
-            end
-          end,
-          desc = "Close buffer",
-        },
+        -- ["<Leader>c"] = {
+        --   function()
+        --     -- Standard buffer close for non-last buffer
+        --     require("astrocore.buffer").close(0)
+        --   end,
+        --   desc = "Close buffer",
+        -- },
       },
     },
   },
