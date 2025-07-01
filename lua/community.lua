@@ -59,7 +59,8 @@ return {
   { import = "astrocommunity.terminal-integration.vim-tmux-navigator" },
 
   -- Completion
-  { import = "astrocommunity.completion.codeium-nvim" },
+  -- This plugin is working really bad for some reason
+  -- { import = "astrocommunity.completion.codeium-nvim" },
 
   -- Editing support
   { import = "astrocommunity.editing-support.undotree" },
