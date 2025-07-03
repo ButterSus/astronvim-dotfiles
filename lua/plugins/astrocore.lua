@@ -88,7 +88,7 @@ return {
         relativenumber = true,
         number = true,
         spell = false,
-        wrap = true,
+        wrap = not vim.g.vscode,
         conceallevel = 2,
       },
       g = {},
