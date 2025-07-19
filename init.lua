@@ -18,3 +18,4 @@ end
 require "lazy_setup"
 require "mappings"
 require "polish"
+require("project-config").setup()
