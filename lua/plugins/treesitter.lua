@@ -13,7 +13,7 @@ return {
     },
     indent = {
       enable = true,
-      disable = { "python" },
+      disable = { "python", "verilog", "systemverilog" },
     },
     textobjects = {
       enable = false,
