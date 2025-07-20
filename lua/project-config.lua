@@ -1,4 +1,4 @@
--- Simple project configuration loader for Neovim
+-- Auto-reloading project configuration loader for Neovim
 local M = {}
 
 local CONFIG_FILE = ".nvim.lua"
@@ -28,11 +28,28 @@ function M.load_config(show_output)
   end
 end
 
+-- Setup file watcher for automatic reloading
+function M.setup_file_watcher()
+  local config_path = vim.fn.getcwd() .. "/" .. CONFIG_FILE
+
+  if vim.fn.filereadable(config_path) == 1 then
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+      pattern = config_path,
+      callback = function()
+        vim.notify("Detected " .. CONFIG_FILE .. " change, reloading...", vim.log.levels.INFO)
+        M.load_config(false)
+      end,
+      desc = "Auto-reload project config on file change",
+    })
+  end
+end
+
 function M.setup()
   -- Auto-load on directory change and startup
   vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
     callback = function()
       M.load_config(false) -- Silent loading
+      M.setup_file_watcher() -- Setup watcher for new directory
     end,
   })
 
@@ -41,8 +58,9 @@ function M.setup()
     M.load_config(true) -- With output
   end, { desc = "Reload project configuration" })
 
-  -- Load initial config
+  -- Load initial config and setup watcher
   M.load_config(false)
+  M.setup_file_watcher()
 end
 
 return M
