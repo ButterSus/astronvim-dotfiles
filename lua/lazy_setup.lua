@@ -4,6 +4,9 @@ function gitUrlFormatter:format(plugin_name)
   -- My custom forks
   if plugin_name == "AstroNvim/astrocommunity" then return "https://github.com/ButterSus/astrocommunity.git" end
   if plugin_name == "AstroNvim/astrocore" then return "https://github.com/ButterSus/astrocore.git" end
+  if plugin_name == "RRethy/nvim-treesitter-endwise" then
+    return "https://github.com/ButterSus/nvim-treesitter-endwise"
+  end
 
   -- Default behavior
   return ("https://github.com/%s.git"):format(plugin_name)
