@@ -31,9 +31,11 @@ end
 -- Setup file watcher for automatic reloading
 function M.setup_file_watcher()
   local config_path = vim.fn.getcwd() .. "/" .. CONFIG_FILE
+  local group = vim.api.nvim_create_augroup("ProjectConfigWatcher", { clear = true })
 
   if vim.fn.filereadable(config_path) == 1 then
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+      group = group, -- Associate with the augroup
       pattern = config_path,
       callback = function()
         vim.notify("Detected " .. CONFIG_FILE .. " change, reloading...", vim.log.levels.INFO)
@@ -46,21 +48,25 @@ end
 
 function M.setup()
   -- Auto-load on directory change and startup
-  vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
+  vim.api.nvim_create_autocmd({ "DirChanged" }, {
     callback = function()
-      M.load_config(false) -- Silent loading
-      M.setup_file_watcher() -- Setup watcher for new directory
+      M.load_config(true)
+      M.setup_file_watcher()
     end,
   })
 
   -- Manual reload command
-  vim.api.nvim_create_user_command("ProjectLSP", function()
-    M.load_config(true) -- With output
-  end, { desc = "Reload project configuration" })
+  vim.api.nvim_create_user_command(
+    "ProjectLSP",
+    function() M.load_config(true) end,
+    { desc = "Reload project configuration" }
+  )
 
-  -- Load initial config and setup watcher
-  M.load_config(false)
-  M.setup_file_watcher()
+  -- Load every time session is loaded
+  require("resession").add_hook("post_load", function()
+    M.load_config(true)
+    M.setup_file_watcher()
+  end)
 end
 
 return M
