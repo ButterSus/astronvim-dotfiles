@@ -63,10 +63,15 @@ function M.setup()
   )
 
   -- Load every time session is loaded
-  require("resession").add_hook("post_load", function()
+  if not vim.g.vscode then
+    require("resession").add_hook("post_load", function()
+      M.load_config(true)
+      M.setup_file_watcher()
+    end)
+  else
     M.load_config(true)
     M.setup_file_watcher()
-  end)
+  end
 end
 
 return M
