@@ -18,4 +18,4 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set({ "n" }, "<Esc>", ":noh<CR>", { silent = true })
 
 -- Close buffer
-vim.keymap.set("n", "<Leader>X", "<cmd>tabclose<CR>", { desc = "Close tab" })
+if not vim.g.vscode then vim.keymap.set("n", "<Leader>X", "<cmd>tabclose<CR>", { desc = "Close tab" }) end
