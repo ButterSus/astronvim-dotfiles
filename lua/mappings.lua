@@ -6,16 +6,25 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Unindent selection" })
 vim.keymap.set("x", "//", 'y/<C-R>"<CR>N', { desc = "Search for selected text", silent = true })
 
 -- Split resizing
-vim.keymap.set("n", "-", ":vertical resize -2<CR>", { silent = true, desc = "Decrease width" })
-vim.keymap.set("n", "=", ":vertical resize +2<CR>", { silent = true, desc = "Increase width" })
-vim.keymap.set("n", "_", ":resize -2<CR>", { silent = true, desc = "Decrease height" })
-vim.keymap.set("n", "+", ":resize +2<CR>", { silent = true, desc = "Increase height" })
+if not vim.g.vscode then
+  vim.keymap.set("n", "-", ":vertical resize -2<CR>", { silent = true, desc = "Decrease width" })
+  vim.keymap.set("n", "=", ":vertical resize +2<CR>", { silent = true, desc = "Increase width" })
+  vim.keymap.set("n", "_", ":resize -2<CR>", { silent = true, desc = "Decrease height" })
+  vim.keymap.set("n", "+", ":resize +2<CR>", { silent = true, desc = "Increase height" })
+end
 
 -- Enter Normal mode in Terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- Reset highlight
 vim.keymap.set({ "n" }, "<Esc>", ":noh<CR>", { silent = true })
+
+-- Centered navigation
+local opts = { noremap = true, silent = true }
+vim.keymap.set({ "n", "x" }, "<C-d>", "<C-d>zz", opts)
+vim.keymap.set({ "n", "x" }, "<C-u>", "<C-u>zz", opts)
+vim.keymap.set({ "n", "x" }, "n", "nzzzv", opts)
+vim.keymap.set({ "n", "x" }, "N", "Nzzzv", opts)
 
 -- Close buffer
 if not vim.g.vscode then vim.keymap.set("n", "<Leader>X", "<cmd>tabclose<CR>", { desc = "Close tab" }) end

@@ -10,16 +10,16 @@ return {
   { import = "astrocommunity.pack.python" },
   -- { import = "astrocommunity.pack.kotlin" },
   -- { import = "astrocommunity.pack.java" },
-  { import = "astrocommunity.pack.typst" },
+  -- { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.verilog" },
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.cpp" },
+  -- { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.fish" },
-  { import = "astrocommunity.pack.hyprlang" },
+  -- { import = "astrocommunity.pack.fish" },
+  -- { import = "astrocommunity.pack.hyprlang" },
   { import = "astrocommunity.pack.markdown" },
-  { import = "astrocommunity.pack.nix" },
+  -- { import = "astrocommunity.pack.nix" },
 
   -- Markdown & Latex
   { import = "astrocommunity.markdown-and-latex.markview-nvim" },
@@ -42,7 +42,7 @@ return {
   { import = "astrocommunity.git.gitgraph-nvim" },
 
   -- Keybinding
-  { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
+  -- { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
 
   -- LSP
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
@@ -53,7 +53,7 @@ return {
 
   -- Motion
   { import = "astrocommunity.motion.flash-nvim" },
-  { import = "astrocommunity.motion.harpoon" },
+  -- { import = "astrocommunity.motion.harpoon" },
   { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.motion.nvim-spider" },
 
@@ -65,13 +65,13 @@ return {
   -- { import = "astrocommunity.completion.codeium-nvim" },
 
   -- Editing support
-  { import = "astrocommunity.editing-support.undotree" },
+  -- { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
-  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-  { import = "astrocommunity.editing-support.bigfile-nvim" },
-  { import = "astrocommunity.editing-support.multiple-cursors-nvim" },
-  { import = "astrocommunity.editing-support.undotree" },
+  -- { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  -- { import = "astrocommunity.editing-support.bigfile-nvim" },
+  -- { import = "astrocommunity.editing-support.multiple-cursors-nvim" },
+  -- { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.editing-support.vim-move" },
   { import = "astrocommunity.editing-support.vim-exchange" },
 
@@ -85,13 +85,13 @@ return {
   { import = "astrocommunity.recipes.neovide" },
 
   -- Diagnostics
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  -- { import = "astrocommunity.diagnostics.trouble-nvim" },
 
   -- Code Runner
-  { import = "astrocommunity.code-runner.overseer-nvim" },
+  -- { import = "astrocommunity.code-runner.overseer-nvim" },
 
   -- Media
-  { import = "astrocommunity.media.img-clip-nvim" },
-  { import = "astrocommunity.media.neocord-nvim" },
-  { import = "astrocommunity.media.image-nvim" },
+  -- { import = "astrocommunity.media.img-clip-nvim" },
+  -- { import = "astrocommunity.media.neocord-nvim" },
+  -- { import = "astrocommunity.media.image-nvim" },
 }
