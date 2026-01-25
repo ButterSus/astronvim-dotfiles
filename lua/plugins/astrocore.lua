@@ -118,10 +118,10 @@ return {
         --   end,
         --   desc = "Close buffer",
         -- },
-      }, not vim.g.vscode and {
+      }, (not vim.g.vscode) and {
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-      }),
+      } or {}),
     },
   },
 }
