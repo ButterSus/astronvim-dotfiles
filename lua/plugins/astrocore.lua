@@ -82,7 +82,7 @@ return {
     },
     -- vim options can be configured here
     options = {
-      opt = {
+      opt = vim.tbl_extend("force", {
         winborder = "solid",
         signcolumn = "number",
         relativenumber = true,
@@ -90,7 +90,9 @@ return {
         spell = false,
         wrap = not vim.g.vscode,
         conceallevel = 2,
-      },
+      }, (not vim.g.vscode) and {
+        cmdheight = 4,
+      } or {}),
       g = {},
     },
     -- Mappings can be configured through AstroCore as well.
