@@ -91,7 +91,7 @@ return {
         wrap = not vim.g.vscode,
         conceallevel = 2,
       }, (not vim.g.vscode) and {
-        cmdheight = 4,
+        cmdheight = 0,
       } or {}),
       g = {},
     },
